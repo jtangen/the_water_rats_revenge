@@ -1,32 +1,853 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Simple Page</title>
-  <style>
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      padding: 2rem;
-      max-width: 700px;
-      margin: 0 auto;
-      line-height: 1.6;
-    }
-    h1 {
-      margin-bottom: 0.5rem;
-    }
-    a {
-      text-decoration: none;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Water Rat's Revenge – A Walking History of 5 Duncan Street</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.8;
+            color: #2D343A;
+            background-color: #F5F5F2;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #A8B8A5 0%, #7C9181 100%);
+            color: #F5F5F2;
+            padding: 6rem 2rem 4rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .hero h2 {
+            font-size: 1.5rem;
+            font-weight: 300;
+            font-style: italic;
+            opacity: 0.95;
+        }
+
+        /* Container */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        /* Alternating Sections */
+        .section {
+            padding: 3rem 2rem;
+        }
+
+        .section-light {
+            background-color: #F5F5F2;
+        }
+
+        .section-warm {
+            background-color: #D9CBB5;
+        }
+
+        .section .container {
+            padding: 0 2rem;
+        }
+
+        /* Typography */
+        h2 {
+            font-size: 2rem;
+            color: #2D343A;
+            margin: 2rem 0 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #A8B8A5;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            color: #7C9181;
+            margin: 2rem 0 1rem;
+            font-style: italic;
+        }
+
+        h4 {
+            font-size: 1.1rem;
+            color: #5A7D2B;
+            margin: 1.5rem 0 0.8rem;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        /* Emphasis boxes */
+        .intro-box {
+            background-color: #8EA2B5;
+            color: #F5F5F2;
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .intro-box p {
+            margin-bottom: 1rem;
+            text-align: left;
+        }
+
+        .intro-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Divider */
+        .divider {
+            height: 2px;
+            background: linear-gradient(to right, transparent, #9B7AD1, transparent);
+            margin: 3rem 0;
+        }
+
+        /* Stop numbers */
+        .stop-header h2::before {
+            content: "◆ ";
+            color: #9B7AD1;
+            font-size: 0.8em;
+        }
+
+        /* Links */
+        a {
+            color: #8EA2B5;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            color: #9B7AD1;
+            border-bottom-color: #9B7AD1;
+        }
+
+        /* References */
+        .references {
+            background-color: #F5F5F2;
+            padding: 3rem 2rem;
+        }
+
+        .references h2 {
+            border-bottom-color: #7C9181;
+        }
+
+        .references ol {
+            padding-left: 1.5rem;
+        }
+
+        .references li {
+            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Acknowledgements */
+        .acknowledgements {
+            background-color: #D9CBB5;
+            padding: 3rem 2rem;
+        }
+
+        .acknowledgements p {
+            text-align: left;
+        }
+
+        /* Conclusion highlight */
+        .conclusion-highlight {
+            background-color: #A8B8A5;
+            color: #F5F5F2;
+            padding: 2rem;
+            border-left: 4px solid #9B7AD1;
+            margin: 2rem 0;
+            border-radius: 4px;
+        }
+
+        .conclusion-highlight p {
+            text-align: left;
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2D343A;
+            color: #F5F5F2;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero h2 {
+                font-size: 1.2rem;
+            }
+
+            .container {
+                padding: 2rem 1rem;
+            }
+
+            .section {
+                padding: 2rem 1rem;
+            }
+
+            h2 {
+                font-size: 1.6rem;
+            }
+
+            h3 {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Nice list styling */
+        .layers-list {
+            background-color: rgba(168, 184, 165, 0.1);
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 4px solid #5A7D2B;
+        }
+
+        .layers-list ol {
+            padding-left: 2rem;
+        }
+
+        .layers-list li {
+            margin-bottom: 1.2rem;
+            line-height: 1.7;
+        }
+
+        .layers-list li strong {
+            color: #5A7D2B;
+        }
+    </style>
 </head>
 <body>
-  <h1>Hello 👋</h1>
-  <p>
-    This is my very simple web page hosted on GitHub Pages.
-  </p>
-  <p>
-    I can share this link with anyone on the internet.
-  </p>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>THE WATER RAT'S REVENGE</h1>
+        <h2>A Walking History of 5 Duncan Street, West End</h2>
+    </div>
+
+    <!-- Before You Begin -->
+    <div class="section section-light">
+        <div class="container">
+            <h2>Before You Begin</h2>
+            <div class="intro-box">
+                <p>This is not a history to read sitting down.</p>
+                <p>Grab your keys. We're going on a walk—through your building, yes, but more importantly, through time. At each stop, you'll stand exactly where dozens, hundreds, thousands of others have stood before you. Sometimes they were Turrbal elders teaching children to weave rat-skin bags. Sometimes they were sweating factory workers bolting steel. Sometimes they were Greek grandmothers hanging washing. Sometimes—in January 2011—they were your neighbours, in pyjamas at 3am, watching brown water bubble up through the basement floor.</p>
+                <p>The tour takes about thirty minutes if you dawdle. Bring this booklet, maybe a coffee, definitely your curiosity. The building will never look quite the same afterward.</p>
+                <p><strong>We start at the front door.</strong></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stop 1 -->
+    <div class="section section-warm">
+        <div class="container">
+            <div class="stop-header">
+                <h2>STOP 1: The Front Door (5 Duncan Street)</h2>
+            </div>
+
+            <h3>Stand here now</h3>
+            <p>You approach along a gently rising stone path, flanked by stubby grey-green walls and square tiled pillars announcing <em>Regatta Apartments – West End</em>. The façade is all white and sage, a quiet, sea-breeze palette that feels more coastal than inner-city. Above you, long verandahs and deep eaves give the building a low-key Queenslander feel, translated into concrete. The name—<em>Regatta</em>—sits there in clean letters, confident and modern, like it was invented by a branding agency in 2002.</p>
+            <p>It wasn't.</p>
+
+            <h3>Drop through: 1891</h3>
+            <p>The name is 133 years old.</p>
+            <p>In July 1891, a real estate firm called Arthur Martin & Co. placed advertisements in the Brisbane newspapers for an auction: <strong>"Regatta Estate, comprising riverfront allotments."</strong> The land—exactly where you're standing now—had been surveyed by Hamilton & Raff for The Land Bank of Queensland Ltd. Lot 1 through Lot 8, each with river frontage, were priced at £150. This was serious money. The estate was marketed as a fashionable address for Brisbane's rising middle class, who wanted river views, fresh breezes, and separation from the rough, sweaty convict town to the east.</p>
+            <p>The auction was held on Saturday, July 25th, 1891. Bidders arrived by horse-drawn tram. Men in high collars studied the subdivision map. Women walked the riverbank, parasols up, imagining garden parties on lawns that sloped to the water.</p>
+            <p>Some lots sold. Some didn't. The estate development began.</p>
+            <p>Two years later, in February 1893, the Brisbane River rose twenty-eight feet in thirty-six hours.</p>
+            <p>The flood swept away houses, drowned livestock, and obliterated the Regatta Estate dream. No fashionable buyer would touch a riverfront allotment now. The land value collapsed. Within a decade, the parcels were being bought up cheaply—not for homes, but for tanneries, boot factories, machinery sheds. The residential dream died, drowned in brown water.</p>
+            <p>When Stockwell chose the name "Regatta Apartments" in 2002, it wasn't an accident. They'd found the 1891 map in the State Library archives. The name wasn't new. It was a resurrection. Your building—completed in 2003—is the first successful incarnation of an idea that failed 112 years earlier. You're living in a twice-told dream.</p>
+
+            <h3>Drop through: 60,000 BCE–1842 CE</h3>
+            <p>Before it was Regatta Estate, before it was surveyed or sold, this bend in the river had a name: <strong>Kurilpa</strong>—"place of the water rat."</p>
+            <p>Stand still for a moment and try to imagine it. Not the pale stone path, not the tiled pillars, but mud. Dense, tangled rainforest pressing right down to the water. The air thick with moisture, the smell of rotting vegetation and flowering vines. Water rats—<em>kuril</em>—scuttling in the reeds. And the river, always the river, wide and brown, bending around this exact point.</p>
+            <p>For more than 60,000 years, the Turrbal and Yuggera peoples lived here. This wasn't just hunting grounds. This was a permanent campsite, a ceremonial staging area, a place where knowledge was taught. The river provided mullet, bream, crabs, eels. The swamp—yes, there was a swamp exactly where you parked your car this morning—provided water birds and turtles. The women hunted the water rats, drove them into nets, roasted them, and told the Dreaming stories that tied this place to deep time.</p>
+            <p>In 1842, Moreton Bay was opened to free European settlement. By the late 1840s, mounted police were forcing Aboriginal people to withdraw beyond the town boundary after dark and on Sundays. That boundary? Boundary Street—still the main road three blocks east of here. The name is literal. A survey line, enforced with violence, that said: <em>This far, no further.</em></p>
+            <p>The land where you're standing—west of that line—was designated as <em>outside</em>. Other. The fringe. That designation stuck. It's why this land was available for dirty industry. It's why Greek and Vietnamese migrants could afford to settle here in the 20th century. It's why West End still has that eclectic, slightly scruffy, proudly non-conformist edge. The suburb's "weirdness" has 180-year-old roots in colonial exclusion.</p>
+
+            <h3>Resurface: Now</h3>
+            <p>You're still standing at the front door. The pale stone is warm under your feet. A neighbour walks past with a dog, nods hello. The river bends around the same point it did 60,000 years ago. The water rats are gone. The Turrbal and Yuggera people were displaced. The 1891 dream drowned. But the river remains, and the land remembers.</p>
+            <p>Take a breath. We're going in.</p>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Stop 2 -->
+    <div class="section section-light">
+        <div class="container">
+            <div class="stop-header">
+                <h2>STOP 2: The Courtyard</h2>
+            </div>
+
+            <h3>Stand here now</h3>
+            <p>You pass through the timber front door—unexpectedly warm, like an old Queenslander entrance absorbed into a modern block—and step into the central courtyard. The space opens around you: pale stone tiles, still dark from last night's rain. Raised garden beds spill philodendrons and bromeliads. Above, the main tower rises six storeys, a clean grid of windows climbing the central spine. Side wings bracket the courtyard, balconies stacked like theatre boxes, some bare, some thick with pot plants and trailing vines.</p>
+            <p>On wet days, the tiles turn slightly reflective, so the whole courtyard glows. It's modestly designed but full of small, affectionate details. A shared herb garden. A community noticeboard. Weathered timber furniture near the pool. The kind of place where you recognise your neighbour by the sound of their footsteps before you see them.</p>
+
+            <h3>Drop through: 1946</h3>
+            <p>In 1946, there was no courtyard.</p>
+            <p>An aerial photograph from that year shows this entire block as a low-slung industrial compound. Corrugated iron roofs. Dirt yards. Railway sidings running down to the river. The site at 5 Duncan Street was occupied by <strong>Australian Machinery Co., Pty. Ltd.</strong></p>
+            <p>You can still find their advertisements in digitised newspapers. They built earth-moving equipment: "TRAC-QUIP dozers, rippers, and scoops to suit crawler tractors." Semi-trailers. Timber jinkers. Heavy-duty underbody hydraulic hoists. This was loud, dirty, essential work. The kind that built post-war Queensland—roads through the bush, dams in the ranges, suburbs gouged out of scrub.</p>
+            <p>The factory yard was where you're standing now. Imagine the smell: diesel, hot metal, cutting oil. The sound: grinding, welding, the clang of steel on steel. The workers were local—West End men walking to the job at 7am, knocking off at 4pm, heading to the pub on Vulture Street. Many were Greek migrants, part of the wave that arrived after World War II and turned West End into "Little Athens." By 1980, an estimated 75% of Brisbane's Greek population lived within a few blocks of here.</p>
+            <p>The machines built at this site—the dozers, the rippers—were the literal tools of transformation. In a deeply ironic twist, they were building the instruments of their own obsolescence. Thirty years later, when developers started buying up the old industrial sites, what do you think they used to clear them? Dozers. Rippers. Probably built right here, on this spot, by men who never imagined their factory would become a swimming pool.</p>
+
+            <h3>Drop through: 1890s</h3>
+            <p>Before the factory, there was almost nothing here. Just grass, river gums, and a wetland.</p>
+            <p>Early maps call it <strong>"Coombes Swamp."</strong> A permanent waterhole fed by the river, teeming with birds, frogs, mosquitoes. When the 1891 Regatta Estate was subdivided, developers drained and filled parts of the swamp to make the allotments more attractive. It didn't work. After the 1893 flood, the swamp reasserted itself. Water pooled in the low ground. The land was too wet, too volatile, too risky for respectable homes.</p>
+            <p>So they built factories on it instead.</p>
+            <p>Here's the thing about swamps: they don't forget. You can pave them, build on them, pretend they're not there. But the water remembers where it used to be. That memory came back—violently—in 2011.</p>
+
+            <h3>Resurface: Now</h3>
+            <p>You're standing in the courtyard again. The tiles are pale and dry now, the morning sun bouncing off them. A monstera plant sits in a pot near the corridor, its glossy leaves curling like it's trying to reclaim a bit of jungle. Above, a neighbour steps onto their balcony, coffee mug in hand.</p>
+            <p>It's peaceful. Domestic. Unremarkable.</p>
+            <p>But you know now: this courtyard is built on a swamp, on a factory yard, on a drowned dream, on 60,000 years of river knowledge. All of it is still here, layered like sediment, compressed beneath the pale stone tiles.</p>
+            <p>Walk toward the back. We're going to the herb garden.</p>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Stop 3 -->
+    <div class="section section-warm">
+        <div class="container">
+            <div class="stop-header">
+                <h2>STOP 3: The Herb Garden</h2>
+            </div>
+
+            <h3>Stand here now</h3>
+            <p>Near the back gate, a long raised planter overflows with basil, parsley, rosemary. The smell of crushed leaves rises every time someone brushes past. Irrigation tubes snake through the soil like little black veins, keeping the communal kitchen garden alive through Brisbane's summer. It's a small thing—a strip of green in a concrete courtyard—but it makes the place feel lived-in. Like someone thought about dinners as well as design.</p>
+
+            <h3>Drop through: 1873–1970</h3>
+            <p>A few hundred metres east of here—between Montague Road and the river, along what's now Ferry Road—stood one of the largest tanneries in Queensland.</p>
+            <p><strong>Thomas Coar Dixon</strong> arrived in Brisbane in 1869 and established his tannery at "Hill End" (the old name for West End) in 1873. He described it as "a beautiful place with hills covered in bush and with only seven houses nearby." By 1875, he'd purchased five acres of riverfront land for £300. The perfect site: direct river access for the water-intensive tanning process, and downwind of the respectable suburbs.</p>
+            <p>Tanning is one of humanity's oldest and foulest industries. You take raw animal hides—cow, kangaroo, possum—and soak them in vats of lime, then tannic acid, then oils. The smell is somewhere between rotting meat and acrid chemicals. It clings to your clothes, your hair, your skin. Workers at Dixon's tannery could be smelled from blocks away.</p>
+            <p>In 1885, fire destroyed all five of Dixon's buildings. He rebuilt. In 1893, the Black February flood swept away his riverside sheds. He rebuilt again. By 1908, he'd constructed a magnificent two-storey brick boot factory at 406 Montague Road, designed by renowned architect Richard Gailey. At its opening, it was proclaimed <strong>the largest men's shoe manufacturer in Australia.</strong></p>
+            <p>The tannery operated for <strong>97 years</strong>, finally closing in 1970. The boot factory lasted until 1973.</p>
+            <p>Stand here in the herb garden and imagine: for nearly a century, this entire neighbourhood smelled like death and chemicals. The river was the dump. The air was thick. And yet, people lived here, worked here, raised families here. Because it was cheap. Because it was close to work. Because this was the fringe, the place <em>outside the line</em>, where working-class people could afford to exist.</p>
+            <p>The herb garden—basil, rosemary, parsley—is an act of gentle defiance against that history. It says: <em>This land can smell good again. This land can feed people.</em></p>
+
+            <h3>Resurface: Now</h3>
+            <p>You run your hand through the rosemary. The sharp, clean scent sticks to your fingers. Behind you, the black metal gate leads out to a narrow lane. Beyond that, the river. The same river that Thomas Dixon used to wash hides in. The same river that flooded his factory three times. The same river that makes this apartment worth $1.1 million today.</p>
+            <p>Let's go to the pool.</p>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Stop 4 -->
+    <div class="section section-light">
+        <div class="container">
+            <div class="stop-header">
+                <h2>STOP 4: The Pool</h2>
+            </div>
+
+            <h3>Stand here now</h3>
+            <p>The pool stretches down one side of the building like a turquoise lane, hemmed in by white walls and glass fencing. It's long and narrow—almost lap-pool proportions—with pale tiles around the edge and a simple metal handrail. A weathered timber table sits inside the pool fence, its boards silvered by years of sunblock, wet towels, and evening drinks. On hot days, a striped umbrella blooms above the table, a little beach club moment tucked inside an inner-city courtyard.</p>
+
+            <h3>Drop through: 2011</h3>
+            <p>On the morning of Wednesday, January 12, 2011, the pool was fine.</p>
+            <p>By that evening, it wasn't the pool anyone was worried about.</p>
+            <p>Building managers Sean and Robyn had been watching the river for days. The warnings were everywhere: the Wivenhoe Dam was releasing unprecedented volumes of water. Roads were cut. Suburbs were going under. At 2:20am on the 12th, the building manager at the neighbouring Arriva Apartments saw water "bubbling up through one of the stormwater grates."</p>
+            <p>The flood didn't come over the riverbank like a wave. It came from below.</p>
+            <p>This is the thing about Coombes Swamp: it never really went away. You can drain it, pave it, build a six-storey apartment block on top of it. But the hydrological memory remains. In 2011, that memory reasserted itself. Water rose through the stormwater drains, through the basement vents, through the ground itself. The old swamp was filling up again, just like it had in 1893, just like it had for millennia before that.</p>
+            <p>Paul Rees, the Body Corporate chair, noted something crucial in his later testimony: the worst flooding wasn't at the immediate riverbank. It was "halfway back to Montague Road." The land here is a natural bowl. It <em>slopes away</em> from the river. The water found the low point—the old swamp—and filled it.</p>
+            <p>By mid-morning on the 13th, the basement carpark at 5 Duncan Street was inundated. Cars floated. Electrical systems failed. The lifts were offline. Police knocked on doors at dawn, ordering evacuations. Residents in pyjamas carried pets and documents up the stairs, watching the brown water rise in the courtyard below.</p>
+            <p>Sean and Robyn worked tirelessly, coordinating sandbagging, moving equipment, keeping residents informed. No apartments flooded. No one was hurt. But it was close.</p>
+
+            <h3>Drop through: 1893</h3>
+            <p>The 2011 flood was not unprecedented. It was a repeat.</p>
+            <p>In February 1893—just two years after the Regatta Estate was auctioned—the Brisbane River rose catastrophically. A photograph from the era shows a house in nearby Orleigh Street washed clean off its foundations. The devastation in West End was absolute. The South Brisbane Gas and Light Company—just up Montague Road—was flooded to the second floor of its central tower. Thomas Dixon's newly rebuilt tannery was destroyed again.</p>
+            <p>The 1893 flood killed the Regatta Estate. The dream drowned.</p>
+
+            <h3>Resurface: Now</h3>
+            <p>You're standing by the pool again. It's calm. Turquoise. A few leaves float on the surface. Above, the sky is clear.</p>
+            <p>But you know now: this pool sits on a swamp that has flooded at least twice in European memory, probably hundreds of times before that. The 18-metre pool, the designer kitchen in your apartment, the secure basement carpark—all of it is more vulnerable to the land's fundamental nature than the old Australian Machinery Co. factory ever was. A factory shed can be hosed out. A flooded basement containing dozens of luxury cars and high-voltage electrical switchboards is a multi-million-dollar catastrophe.</p>
+            <p>The land tolerates you. For now.</p>
+            <p>Walk inside. We're going to the lobby.</p>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Stop 5 -->
+    <div class="section section-warm">
+        <div class="container">
+            <div class="stop-header">
+                <h2>STOP 5: The Lobby & Oar Wall</h2>
+            </div>
+
+            <h3>Stand here now</h3>
+            <p>You step through the big glass doors into the lobby. It feels unexpectedly calm: grey stone-look tiles underfoot, pale green mid-century armchairs in the corner. Through the glass, you can see the courtyard and pool, so even on a rainy day the lobby is full of soft, reflected light.</p>
+            <p>Halfway down the corridor, two crossed oars hang on the wall, their white blades catching the light from a single green lamp. Above them, the words "REGATTA WEST END" are stencilled in small letters. A monstera sits beneath the oars, its glossy leaves curling into the hallway.</p>
+
+            <h3>Drop through: 1886</h3>
+            <p>The oars aren't just décor. They're a reference.</p>
+            <p>Directly across the Brisbane River, in Toowong, stands the <strong>Regatta Hotel</strong>—a heritage-listed establishment built in 1886–87 that remains a major Brisbane landmark, easily visible from the Duncan Street riverbank. The hotel was named for the rowing regattas held on this stretch of the river in the late 19th century. Crews from Brisbane, Toowong, and South Brisbane would race past this exact bend, spectators lining both banks.</p>
+            <p>When the 1891 Regatta Estate was subdivided, the name likely came from two sources: the hotel across the water, and the regattas themselves. It was branding, an attempt to associate these muddy, flood-prone allotments with leisure, sport, and middle-class respectability.</p>
+            <p>It didn't work in 1891. It worked in 2003.</p>
+            <p>Stockwell, the developer, resurrected the name deliberately. They were selling a lifestyle: river views, morning walks along Riverside Drive with your dog, coffee on the balcony watching CityCats glide past. The oars on the lobby wall are a visual echo of that 19th-century aspiration, finally realised 112 years late.</p>
+
+            <h3>Resurface: Now</h3>
+            <p>You stand in front of the oars. They're just wood and paint, mounted on a white wall, lit by a green lamp. The monstera below them grows, indifferent, reclaiming the hallway inch by inch.</p>
+            <p>Let's take the lift up.</p>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Stop 6 -->
+    <div class="section section-light">
+        <div class="container">
+            <div class="stop-header">
+                <h2>STOP 6: The Lift</h2>
+            </div>
+
+            <h3>Stand here now</h3>
+            <p>You press the button. The lift doors open: a small stainless-steel capsule, humming softly. You step in. The control panel is a neat vertical stack of round buttons, polished by thousands of thumbs. A tidy spec plate beside the door reads: <strong>"LIFT No. 1, 5 Duncan Street, West End QLD 4101. 13 persons. 1000 kg."</strong></p>
+            <p>The doors close. You rise.</p>
+
+            <h3>Drop through: 2003</h3>
+            <p>This lift was installed as part of the original construction in 2003. When Regatta Apartments was completed, it was <strong>the first residential development in the industrial precinct along the Brisbane River in West End.</strong> That's not marketing spin. It's literal. For over a century, this riverside pocket had been considered unsuitable for housing due to flood risk and industrial character. The success of 5 Duncan Street "set the stage for the growth and development that followed."</p>
+            <p>Stockwell didn't stop here. After this building proved the concept, they went on to develop <strong>14 additional residential buildings in West End</strong>, building over 1,000 apartments. Other developers followed: Pradella built over 1,500 apartments; McNab, Zen Group, and others transformed the riverside. By 2024, Duncan Street features multiple high-density developments, including proposed 17-storey twin towers at 24 Duncan Street.</p>
+            <p>You're in the pioneer building. The first domino to fall.</p>
+
+            <h3>Resurface: Now</h3>
+            <p>The lift stops. The doors open. You step out into the corridor on Level 5. Warm yellow lights pool along the hallway. It's quiet. Carpet muffles footsteps. Someone's cooking garlic in Unit 48.</p>
+            <p>Let's go to the rooftop.</p>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Stop 7 -->
+    <div class="section section-warm">
+        <div class="container">
+            <div class="stop-header">
+                <h2>STOP 7: The Rooftop (or Top-Floor Balcony)</h2>
+            </div>
+
+            <h3>Stand here now</h3>
+            <p>You step out onto a top-floor balcony—or, if you have access, the rooftop itself. The view opens wide. The Brisbane River fills the frame, a broad sweep of moving brown water. On the far bank: a line of mid-rise apartments, office towers, and behind them the faint blue smudge of the D'Aguilar Range. Below, the bike path along Riverside Drive goes glossy black after rain, and the grass is scattered with purple jacaranda confetti.</p>
+            <p>The view is bracketed by that magnificent <strong>giant eucalypt</strong> directly between the building and the river—a true landmark, its pale trunk rising from the parkland. At any given moment, the tree is alive with birds: raucous cockatoos, rainbow lorikeets screeching in the branches, sometimes a kookaburra surveying the scene. At dusk, the sky fills with <strong>flying foxes</strong> heading out for the night, their silhouettes crossing a sky streaked pink and orange and purple—colours so vivid they almost seem unreal.</p>
+            <p>And in summer, there's another show: watching the <strong>storms roll in</strong> on evening heat. The sky darkens to the west. Lightning forks across the ranges. Thunder rumbles closer. Then the wind picks up, the temperature drops ten degrees in ten minutes, and the rain arrives in sheets, breaking the oppressive heat. From up here, you can see it coming—a grey wall moving across the suburbs toward you.</p>
+
+            <h3>Drop through: 1946</h3>
+            <p>From this height in 1946, you would have looked down on a landscape of corrugated iron and smoke. The Australian Machinery Co. factory directly below. Further east, the South Brisbane Gas and Light Company's metal towers and coal stores. Timber yards along the river. A barge unloading at the wharf. The Regatta Hotel across the water, already sixty years old, slightly shabby, unchanged.</p>
+            <p>West End in 1946 was a working-class suburb of weatherboard cottages, corner pubs, and Greek-run fish-and-chip shops. Trams rattled down Hardgrave Road. Kids swam in the river (despite the pollution). On Saturday nights, the dance hall at the West End Hotel was packed. It was a tight community, built around the factories, the wharves, the certainty of work.</p>
+            <p>That world is almost entirely gone. The factories closed in the 1970s–80s. The Greek community largely moved out, displaced by rising property values. West End is gentrifying fast, and the view from this rooftop is the clearest evidence: glass towers replacing tin sheds, manicured parkland replacing industrial yards.</p>
+
+            <h3>Drop through: Pre-1842</h3>
+            <p>From this height in, say, 1820, you would have looked down on unbroken forest. Rainforest thick to the river's edge, the canopy a sea of green. Smoke rising from campfires along the bank. Bark canoes on the water. The sound of children playing, of ceremony, of daily life continuing as it had for 60,000 years.</p>
+            <p>You wouldn't have been able to stand here, of course. There was no building. Just trees, and river, and the <em>kuril</em> rats scuttling in the reeds.</p>
+
+            <h3>Resurface: Now</h3>
+            <p>You're on the rooftop again. The wind picks up. A CityCat passes below, heading upstream toward UQ. The cockatoos in the eucalypt screech at each other, a sound so loud it cuts through traffic noise. Across the river, someone's hanging washing on a balcony. The city is going about its business, oblivious to the fact that all of this—the apartments, the bike path, the ferry terminal—is built on a century-long interruption between two versions of the same dream.</p>
+            <p>Let's go down to the river path.</p>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Stop 8 -->
+    <div class="section section-light">
+        <div class="container">
+            <div class="stop-header">
+                <h2>STOP 8: Riverside Drive (The River Path)</h2>
+            </div>
+
+            <h3>Stand here now</h3>
+            <p>You've left the building now and you're standing on the Riverside Drive bikeway, the paved path that runs along the Brisbane River. To your left, the pale façade of Regatta Apartments. To your right, the river itself. Behind you, that towering eucalypt, filled with the constant chatter of lorikeets. Jacarandas line the path, their purple flowers drifting down like confetti.</p>
+            <p>The path is always busy: cyclists whizzing past, joggers in bright shoes, couples walking labradors, neighbours from 5 Duncan Street heading out for their morning or evening dog walk. It's one of the most social parts of the building's daily rhythm—you'll recognise the same dogs and their owners, the same time every day, nodding hellos, stopping to chat.</p>
+            <p>The path was extended and improved by Brisbane City Council as part of the riverside redevelopment in the early 2000s. It's one of the major amenities that make Regatta Apartments—and every apartment along here—so desirable. You're 100 metres from riverfront parkland with direct access to the bikeway and walking paths.</p>
+
+            <h3>Drop through: 1979</h3>
+            <p>Riverside Drive—the road you just crossed to get to the path—was constructed in 1979. Before that, there was no clear separation between the river and the industrial land. Factories and warehouses backed right onto the water. Barges pulled up to improvised wharves. The shoreline was a mess of pylons, cranes, and rubbish.</p>
+            <p>The 1979 road raised the shoreline with rockfill, improving flood management and creating a buffer between the river and development. It also, crucially, made riverside residential development more feasible. Without Riverside Drive, Regatta Apartments probably couldn't have been built—or at least not with the confidence that the ground floor wouldn't flood every five years.</p>
+            <p>But here's the irony: Riverside Drive <em>reduced</em> flood risk, but it didn't eliminate it. The 2011 flood still inundated the area because the water came from <em>behind</em>—from the old swamp filling up—not from the river overtopping its banks.</p>
+
+            <h3>Drop through: 1893</h3>
+            <p>The river path you're standing on didn't exist in 1893. It was underwater.</p>
+            <p>When the Black February flood hit, the river here rose so high that rowing boats navigated <em>through</em> the factories and houses. People climbed onto roofs. Livestock drowned. The survivors waded through mud for weeks afterward, trying to salvage what they could.</p>
+            <p>The Wivenhoe Dam, built after the 1974 flood, was supposed to prevent a repeat. It didn't. In 2011, the dam operators made "sub-optimal decisions" about releases, and the river rose almost as high as it had in 1893.</p>
+            <p>The river has a memory. It remembers its floodplain. And every few decades, it reclaims it.</p>
+
+            <h3>Drop through: Pre-1842</h3>
+            <p>Before 1842, the river path was a beach.</p>
+            <p>Early European accounts describe a sandy beach along this north-facing riverbank, called "Maroochy" by the Turrbal people—meaning "swimming." Water lilies grew in thousands along the shallows. The Turrbal and Yuggera used this beach as a river crossing, paddling bark canoes loaded with people and goods.</p>
+            <p>Stand here and try to picture it: the sand pale and clean, the water clear enough to see fish. No buildings. No path. No cyclists. Just river, and trees, and the sound of water lapping against the shore.</p>
+
+            <h3>Resurface: Now</h3>
+            <p>You're on the bike path again. A cyclist dings their bell, and you step aside. A neighbour from 5 Duncan Street walks past with their kelpie, waves. The path continues in both directions: east toward South Bank and the city, west toward the University of Queensland. Jacaranda petals stick to the soles of your shoes.</p>
+            <p>Let's walk east a bit. There's something you need to see.</p>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Stop 9 -->
+    <div class="section section-warm">
+        <div class="container">
+            <div class="stop-header">
+                <h2>STOP 9: The Gas Stripping Tower</h2>
+            </div>
+
+            <h3>Walk here now</h3>
+            <p>About 300 metres east along the bike path, near Davies Park, you'll see it: a tall, rusted, cylindrical tower standing alone in the grass like a forgotten monument. It's about 21 metres high, made of cast iron, with a strange skeletal elegance.</p>
+            <p>This is the <strong>Gas Stripping Tower</strong>, the last surviving remnant of the South Brisbane Gas and Light Company's West End Gasworks.</p>
+
+            <h3>Drop through: 1912</h3>
+            <p>The tower was built in 1912, cast in sections in England and shipped to Brisbane, then assembled on site. Its job was to remove impurities from coal gas—specifically ammonia and tar—before the gas was distributed to homes and streetlights across Brisbane. The gasworks operated here from 1886 until 1975.</p>
+            <p>For nearly a century, this was one of the most important industrial sites in Queensland. The gasworks employed hundreds of workers, produced millions of cubic feet of gas, and defined the West End skyline. The complex included massive gas storage tanks—metal cylinders the size of buildings—that were visible from across the river. At night, the works were lit by hundreds of gas lamps, a small city of light and heat.</p>
+            <p>The smell was unforgettable. Coal gas production involves heating coal in the absence of oxygen, which produces gas but also thick, black coal tar and a choking ammonia stench.</p>
+            <p>When the gasworks closed in 1975, the site was dismantled. The giant storage tanks were demolished. The buildings were torn down. The land was sold for residential development. The Gas Stripping Tower, bizarrely, was saved. It was moved 200 metres to Davies Park and re-erected as a monument. Today, it's heritage-listed as <strong>the only surviving gas stripping tower in Australia.</strong></p>
+
+            <h3>Resurface: Now</h3>
+            <p>You're standing in front of the tower. It's rusted, decaying, slowly being reclaimed by the elements. A plaque at the base explains its history, but most people walk past without noticing. It's just a weird old thing in the park.</p>
+            <p>But to you—now—it's a marker. A reminder that the entire neighbourhood you live in was built for a purpose that no longer exists. The gasworks, the tannery, the boot factory, the machinery sheds—all of it was essential, until it wasn't. And then it was erased, almost entirely, replaced by apartments and parks and bike paths.</p>
+            <p>The tower is the last witness to that vanished world. It stands alone, rusted and forgotten, like a gravestone for the industrial century.</p>
+            <p>Turn around. Let's head back toward Duncan Street.</p>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Stop 10 -->
+    <div class="section section-light">
+        <div class="container">
+            <div class="stop-header">
+                <h2>STOP 10: Montague Road (The Shops)</h2>
+            </div>
+
+            <h3>Walk here now</h3>
+            <p>You've walked back to Duncan Street and turned left, heading inland (east) until you hit Montague Road, the main thoroughfare running parallel to the river. Here, the neighbourhood shifts. The quiet riverside apartments give way to shopfronts, cafés, a Woolworths, the new Montague Markets development.</p>
+            <p>This is the public face of West End: busy, multicultural, slightly chaotic. A Vietnamese bakery next to a craft brewery next to a Salvos. The footpath is crowded. The air smells like coffee, pho, and bus exhaust.</p>
+
+            <h3>Drop through: 1875–2000</h3>
+            <p>For over a century, Montague Road was the spine of industrial West End.</p>
+            <p>Thomas Dixon's tannery and boot factory were here—massive brick buildings that employed hundreds. The South Brisbane Gas and Light Company was here. Sawmills, concrete pipe works, iron foundries, a glassworks. In 1928, the Peters Ice Cream Factory opened on Boundary Street (just off Montague), a modernist art deco building that became a local landmark. It operated for 70 years, until 1996, churning out thousands of litres of ice cream while pumping sweet vanilla-scented steam into the air.</p>
+            <p>Walk along Montague Road in 1950, and you'd have heard: factory whistles, the clang of metal, the hiss of steam, the rattle of trucks. You'd have smelled: diesel, hot tar, baking bread, leather from the tannery. You'd have seen: men in overalls, women in headscarves, kids running errands for the corner shop.</p>
+            <p>This was a working neighbourhood, in the most literal sense. People lived within walking distance of their jobs. Saturdays were the markets at Davies Park (which started in 1918 and still run today). Sundays were the Greek Orthodox Church, or the soccer ground at Orleigh Park.</p>
+
+            <h3>Drop through: 1980s–1990s</h3>
+            <p>By the 1980s, the factories were closing. The gasworks shut in 1975. Peters Ice Cream relocated in 1996. Dixon's boot factory had closed decades earlier. The land—contaminated by a century of industrial use—sat vacant.</p>
+            <p>West End in the 1990s had a reputation: cheap rent, rough edges, artists, alternative types. Some of the old warehouses were taken over as creative spaces. The Nest, an artist collective, still operates out of a converted warehouse at the corner of Duncan and Ferry Road—one of the last remnants of that era.</p>
+            <p>The 1988 World Expo at South Bank was the catalyst for change. Suddenly, the riverfront was valuable again. The Queensland government and Brisbane City Council rezoned large parts of West End from "industrial" to "mixed-use medium-density residential." Developers moved in.</p>
+            <p>Stockwell bought the site at 5 Duncan Street in 2000. Construction began in 2001. Regatta Apartments opened in 2003.</p>
+            <p>And the flood of redevelopment that followed has never stopped.</p>
+
+            <h3>Resurface: Now</h3>
+            <p>You're standing on Montague Road, outside a café. A bus pulls up. People get on and off. The street is loud, busy, alive. But you can see the ghosts if you look: the Salvos shopfront used to be a factory loading bay. The craft brewery was a mechanic's workshop. The Woolworths carpark sits on land where Greek market gardens once grew tomatoes and zucchini.</p>
+            <p>The suburb has turned over. The industrial century is gone. But the bones are still here, if you know where to look.</p>
+            <p>Let's walk back to Regatta Apartments. We're almost done.</p>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Stop 11 -->
+    <div class="section section-warm">
+        <div class="container">
+            <div class="stop-header">
+                <h2>STOP 11: Back at the Courtyard (Full Circle)</h2>
+            </div>
+
+            <h3>Stand here now</h3>
+            <p>You're back at the building, standing in the courtyard where we started. The tiles are warm now. The sun has shifted. A neighbour is doing laps in the pool. Another is reading on a balcony. Someone's grilling something in the BBQ area, and the smell of charcoal and marinade drifts through the air.</p>
+            <p>It's an ordinary day at 5 Duncan Street. Peaceful. Domestic. Unremarkable.</p>
+            <p>But you've walked through time now. You know what's beneath your feet. You know the layers.</p>
+
+            <h3>The Layers (Summarised)</h3>
+            <div class="layers-list">
+                <ol>
+                    <li><strong>60,000 BCE–1842 CE:</strong> Kurilpa, place of the water rats. The Turrbal and Yuggera peoples. Campfires, fishing, ceremony, deep knowledge. An unbroken thread of human presence stretching back into deep time.</li>
+                    
+                    <li><strong>1842–1891:</strong> European invasion. Dispossession. The land declared "outside the line." Farms, then subdivision. The 1891 Regatta Estate dream.</li>
+                    
+                    <li><strong>1893:</strong> The Black February flood. The dream drowns.</li>
+                    
+                    <li><strong>1890s–1970s:</strong> The industrial century. Tanneries, boot factories, gasworks, machinery sheds. The smell of chemicals. The sound of steel. A working-class suburb built on cheap land and hard labour.</li>
+                    
+                    <li><strong>1980s–2000:</strong> Decline. Dereliction. Artists and squatters. The land sits vacant, waiting.</li>
+                    
+                    <li><strong>2003:</strong> Regatta Apartments. The 1891 name resurrected. The dream finally built. The first residential development on the industrial riverside.</li>
+                    
+                    <li><strong>2011 & 2022:</strong> The river returns. The swamp fills. The land's hydrological memory reasserts itself. Building managers Sean and Robyn coordinate the response. Residents evacuate. The community endures.</li>
+                    
+                    <li><strong>Now:</strong> You. Standing in a courtyard built on all of this.</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Conclusion -->
+    <div class="section section-light">
+        <div class="container">
+            <h2>Living in the Layers</h2>
+            
+            <p>Here's what's remarkable about 5 Duncan Street: it's not just a building. It's a <strong>palimpsest</strong>—a surface that's been written on, erased, and written on again, over and over, for 60,000 years.</p>
+            
+            <p>Every time you walk through the front door, you're walking through the entrance of the failed 1891 Regatta Estate. Every time you swim in the pool, you're swimming above the Australian Machinery Co. factory yard. Every time you look out your balcony at the river, you're looking at the same bend that Turrbal fishermen navigated in bark canoes.</p>
+            
+            <p>The land has been many things: sacred country, swamp, failed subdivision, industrial zone, artistic squat, luxury apartments. But the river has been constant. And the river has the final say.</p>
+            
+            <div class="conclusion-highlight">
+                <p>The 2011 flood was not an anomaly. It was the land reminding everyone—gently, this time—of what it is. The next flood will come. Maybe in five years, maybe in fifty. The climate is changing. The river will rise again. And when it does, Regatta Apartments will face the same test it faced in 2011.</p>
+            </div>
+            
+            <p>But here's the other thing you should know: the building survived. Not just because of engineering (though the raised electrical systems helped). Not because of the basement design (which failed spectacularly). But because of the community.</p>
+            
+            <p>In his witness statement to the Queensland Floods Commission of Inquiry, Paul Rees—the Body Corporate chair—described 5 Duncan Street as having "a strong sense of community ethic, an active body corporate, and regular social events to strengthen our sense of community." During the flood, Sean and Robyn worked tirelessly. Residents checked on each other. Volunteers helped with the clean-up. Neighbours shared information, supplies, and reassurance.</p>
+            
+            <p>The physical infrastructure failed. The social infrastructure held.</p>
+            
+            <p>And that social fabric continues today. <strong>Rosie Russell</strong>, who has been a resident since the building opened in 2003, embodies that spirit—she's the social glue that holds the community together, organizing events, checking in on neighbours, making sure everyone feels connected. Walk through the courtyard on any given morning and you'll see it: people heading out with their dogs, stopping to chat. Someone lending a hand with groceries. A quick wave from a balcony. The kind of daily, unremarkable interactions that make a building into a home.</p>
+            
+            <p>You're part of that now. You live in the layers. You stand on the deep history of Kurilpa, on the industrial bones of the machinery shed, on the 1891 dream that drowned and was resurrected 112 years later. You're the latest chapter in a story that stretches back 60,000 years and will continue long after Regatta Apartments is gone.</p>
+            
+            <div class="conclusion-highlight">
+                <p>The river will outlast all of us. But while we're here, we might as well live well. Tend the herb garden. Swim in the pool. Walk your dog along the river path at dusk, watching the flying foxes cross the pink sky. Wave to your neighbours in the courtyard. Watch the summer storms roll in from the west. Know your history. Remember the land. Respect the river.</p>
+                <p><strong>Welcome home.</strong></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Acknowledgements -->
+    <div class="acknowledgements">
+        <div class="container">
+            <h2>Acknowledgements</h2>
+            
+            <p>This historical narrative was researched and written with the assistance of multiple artificial intelligence language models, including Claude (Anthropic), ChatGPT (OpenAI), and Gemini (Google). These tools were used to gather historical information, synthesize research materials, and craft the narrative structure and prose. While the AI models provided significant research and writing support, all content has been reviewed for accuracy against primary and secondary sources, and the conceptual framework, structure, and editorial decisions remain the work of the human author.</p>
+            
+            <p>Readers should be aware that AI-generated content may contain errors or interpretations that require verification. I encourage anyone seeking to use this work for scholarly or commercial purposes to cross-reference the cited sources directly.</p>
+            
+            <p>I would also like to acknowledge the Traditional Owners of the land on which Regatta Apartments stands—the Turrbal and Yuggera peoples—and pay my respects to their Elders past, present, and emerging. This land was never ceded, and its history extends far beyond what can be captured in any single document.</p>
+        </div>
+    </div>
+
+    <!-- References -->
+    <div class="references">
+        <div class="container">
+            <h2>References</h2>
+            <ol>
+                <li>State Library of Queensland. (1891). <em>Regatta Estate, comprising riverfront allotments</em>. <a href="https://www.data.qld.gov.au/dataset/real-estate-and-property-maps" target="_blank">Queensland Government Open Data Portal</a>.</li>
+                
+                <li>Queensland Floods Commission of Inquiry. (2012). <em>Final report</em>. <a href="http://www.floodcommission.qld.gov.au/__data/assets/pdf_file/0007/11698/QFCI-Final-Report-March-2012.pdf" target="_blank">Queensland Government</a>.</li>
+                
+                <li>West Village Community. (n.d.). <em><a href="https://westvillagecommunity.com.au/history-of-west-end/" target="_blank">History of West End</a></em>.</li>
+                
+                <li>West End Today. (n.d.). <em><a href="https://westendtoday.com.au/tag/stockwell/" target="_blank">Stockwell Archives</a></em>.</li>
+                
+                <li>Museum of Brisbane. (n.d.). <em><a href="https://www.museumofbrisbane.com.au/mob-sunday-stories-kurilpa-library/" target="_blank">MoB Sunday Stories: Kurilpa Library</a></em>.</li>
+                
+                <li>West Village Community. (n.d.). <em><a href="https://westvillagecommunity.com.au/wv/heritage/" target="_blank">Heritage</a></em>.</li>
+                
+                <li>University of Queensland School of Architecture, Design and Planning. (2022). <em><a href="https://adp.uq.edu.au/files/13189/Aboriginal-Places-of-Inner-Brisbane-2022.pdf" target="_blank">Aboriginal places of inner Brisbane</a></em>.</li>
+                
+                <li>Paul Budde History. (n.d.). <em><a href="https://paulbuddehistory.com/convict-history-of-brisbane/take-2-the-moreton-bay-convict-settlement-and-penal-colony-on-the-river/" target="_blank">The Turrbal People</a></em>.</li>
+                
+                <li>State Library of Queensland. (n.d.). <em><a href="https://www.slq.qld.gov.au/blog/west-end" target="_blank">West End</a></em>.</li>
+                
+                <li>Highgate Hill Historical Vignettes. (2024, September 7). <em><a href="https://highgatehill-historical-vignettes.com/2024/09/07/the-story-of-an-intersection-boundary-and-vulture-streets-west-end/" target="_blank">The story of an intersection: Boundary and Vulture Streets, West End</a></em>.</li>
+                
+                <li>Weekend Notes. (n.d.). <em><a href="https://www.weekendnotes.com/keeping-west-end-weird/" target="_blank">Keeping West End Weird</a></em>.</li>
+                
+                <li>Brisbane City Council. (n.d.). <em><a href="https://data.brisbane.qld.gov.au/explore/dataset/aerial-imagery-1946/" target="_blank">Aerial imagery — 1946</a></em>.</li>
+                
+                <li>National Library of Australia. (1946, August 6). Australian Machinery Co., Pty., Ltd. <em>The Courier-Mail</em>. <a href="https://trove.nla.gov.au/newspaper/article/49352432" target="_blank">Trove</a>.</li>
+                
+                <li>National Library of Australia. (1946, September 28). Australian Machinery Co., Pty., Ltd. <em>The Courier-Mail</em>. <a href="https://trove.nla.gov.au/newspaper/article/49340827" target="_blank">Trove</a>.</li>
+                
+                <li>National Library of Australia. (1946, December 21). Australian Machinery Co., Pty., Ltd. <em>The Courier-Mail</em>. <a href="https://trove.nla.gov.au/newspaper/article/49335860" target="_blank">Trove</a>.</li>
+                
+                <li>West Village Community. (n.d.). <em><a href="https://westvillagecommunity.com.au/wv/heritage/" target="_blank">Heritage</a></em>.</li>
+                
+                <li>West Village Community. (n.d.). <em><a href="https://westvillagecommunity.com.au/wv/heritage/" target="_blank">Heritage</a></em>.</li>
+                
+                <li>West Village Community. (n.d.). <em><a href="https://westvillagecommunity.com.au/wv/heritage/" target="_blank">Heritage</a></em>.</li>
+                
+                <li>Scribd. (n.d.). <em><a href="https://www.scribd.com/doc/305458464/west-end-walk-4-v3" target="_blank">West End Walk 4 v3</a></em>.</li>
+                
+                <li>State Library of Queensland. (n.d.). <em><a href="https://www.slq.qld.gov.au/blog/west-end" target="_blank">West End</a></em>.</li>
+                
+                <li>State Library of Queensland. (n.d.). <em><a href="https://www.slq.qld.gov.au/blog/west-end" target="_blank">West End</a></em>.</li>
+                
+                <li>State Library of Queensland. (n.d.). <em><a href="https://www.slq.qld.gov.au/blog/west-end" target="_blank">West End</a></em>.</li>
+                
+                <li>State Library of Queensland. (n.d.). <em><a href="https://www.slq.qld.gov.au/blog/west-end" target="_blank">West End</a></em>.</li>
+                
+                <li>State Library of Queensland. (n.d.). <em><a href="https://www.slq.qld.gov.au/blog/west-end" target="_blank">West End</a></em>.</li>
+                
+                <li>State Library of Queensland. (n.d.). <em><a href="https://www.slq.qld.gov.au/blog/west-end" target="_blank">West End</a></em>.</li>
+                
+                <li>State Library of Queensland. (n.d.). <em><a href="https://www.slq.qld.gov.au/blog/west-end" target="_blank">West End</a></em>.</li>
+                
+                <li>Realestate.com.au. (2023). <em><a href="https://www.realestate.com.au/sold/property-apartment-qld-west+end-143087336" target="_blank">9/5 Duncan Street, West End, Qld 4101 - Property details</a></em>.</li>
+                
+                <li>Queensland Floods Commission of Inquiry. (2011). <em><a href="http://www.floodcommission.qld.gov.au/__data/assets/file/0009/9837/Robertson_Diane.pdf" target="_blank">Statement of Diane Robertson</a></em>.</li>
+                
+                <li>Queensland Floods Commission of Inquiry. (2011). <em><a href="http://www.floodcommission.qld.gov.au/__data/assets/file/0009/9837/Robertson_Diane.pdf" target="_blank">Statement of Diane Robertson</a></em>.</li>
+                
+                <li>Queensland Floods Commission of Inquiry. (2011). <em><a href="http://www.floodcommission.qld.gov.au/__data/assets/pdf_file/0007/9484/2011-09-21-QFCI-Day-34-Brisbane.pdf" target="_blank">Transcript, Day 34</a></em>.</li>
+                
+                <li>Queensland Floods Commission of Inquiry. (2011). <em><a href="http://www.floodcommission.qld.gov.au/__data/assets/pdf_file/0020/9533/QFCI_Exhibit_576_-_Statement_of_Paul_Rees_dated_26_August_2011_with_Annexures.pdf" target="_blank">Statement of Paul Rees dated 26 August 2011 with annexures</a></em>.</li>
+                
+                <li>Scribd. (n.d.). <em><a href="https://www.scribd.com/doc/305458464/west-end-walk-4-v3" target="_blank">West End Walk 4 v3</a></em>.</li>
+                
+                <li>State Library of Queensland. (n.d.). <em><a href="https://www.slq.qld.gov.au/blog/west-end" target="_blank">West End</a></em>.</li>
+                
+                <li>State Library of Queensland. (n.d.). <em><a href="https://www.slq.qld.gov.au/blog/west-end" target="_blank">West End</a></em>.</li>
+                
+                <li>Queensland Floods Commission of Inquiry. (2012). <em><a href="http://www.floodcommission.qld.gov.au/__data/assets/pdf_file/0014/11714/QFCI-Final-Report-Chapter-10-Essential-services.pdf" target="_blank">Final report, Chapter 10: Essential services</a></em>.</li>
+                
+                <li>Wikipedia. (n.d.). <em><a href="https://en.wikipedia.org/wiki/Regatta_Hotel" target="_blank">Regatta Hotel</a></em>.</li>
+                
+                <li>State Library of Queensland. (n.d.). <em><a href="https://www.slq.qld.gov.au/blog/west-end" target="_blank">West End</a></em>.</li>
+                
+                <li>Regatta West End. (n.d.). <em><a href="https://www.regattawestend.com/home/about" target="_blank">About</a></em>.</li>
+                
+                <li>Regatta West End. (n.d.). <em><a href="https://www.regattawestend.com/home/about" target="_blank">About</a></em>.</li>
+                
+                <li>Regatta West End. (n.d.). <em><a href="https://www.regattawestend.com/home/about" target="_blank">About</a></em>.</li>
+                
+                <li>West End Today. (n.d.). <em><a href="https://westendtoday.com.au/stockwell-buys-bailey-street-property-for-future-residential-development/" target="_blank">Stockwell buys Bailey Street property for future residential development</a></em>.</li>
+                
+                <li>Brisbane Development. (n.d.). <em><a href="https://brisbanedevelopment.com.au/two-tower-development-proposed-for-duncan-st-west-end/" target="_blank">Two-tower development proposed for Duncan St, West End</a></em>.</li>
+                
+                <li>Queensland Government Department of Environment and Science. (n.d.). <em><a href="https://apps.des.qld.gov.au/heritage-register/detail/?id=601595" target="_blank">West End Gasworks</a></em>.</li>
+                
+                <li>Wikipedia. (n.d.). <em><a href="https://en.wikipedia.org/wiki/Regatta_Hotel" target="_blank">Regatta Hotel</a></em>.</li>
+                
+                <li>West Village Community. (n.d.). <em><a href="https://westvillagecommunity.com.au/wv/heritage/" target="_blank">Heritage</a></em>.</li>
+                
+                <li>West Village Community. (n.d.). <em><a href="https://westvillagecommunity.com.au/wv/heritage/" target="_blank">Heritage</a></em>.</li>
+                
+                <li>University of Queensland School of Architecture, Design and Planning. (2022). <em><a href="https://adp.uq.edu.au/files/13189/Aboriginal-Places-of-Inner-Brisbane-2022.pdf" target="_blank">Aboriginal places of inner Brisbane</a></em>.</li>
+                
+                <li>Regatta West End. (n.d.). <em><a href="https://www.regattawestend.com/home/about" target="_blank">About</a></em>.</li>
+                
+                <li>Regatta West End. (n.d.). <em><a href="https://www.regattawestend.com/home/about" target="_blank">About</a></em>.</li>
+                
+                <li>West Village Community. (n.d.). <em><a href="https://westvillagecommunity.com.au/wv/heritage/" target="_blank">Heritage</a></em>.</li>
+                
+                <li>West Village Community. (n.d.). <em><a href="https://westvillagecommunity.com.au/wv/heritage/" target="_blank">Heritage</a></em>.</li>
+                
+                <li>Queensland Floods Commission of Inquiry. (2011). <em><a href="http://www.floodcommission.qld.gov.au/__data/assets/pdf_file/0007/9484/2011-09-21-QFCI-Day-34-Brisbane.pdf" target="_blank">Transcript, Day 34</a></em>.</li>
+                
+                <li>ArcGIS StoryMaps. (n.d.). <em><a href="https://storymaps.arcgis.com/stories/28331baf7c584fb5be84ae1b8b7389f2" target="_blank">Historical flooding in Brisbane</a></em>.</li>
+                
+                <li>Moggill Historical Society. (n.d.). <em><a href="https://moggillhistorical.au/local-history/floods/" target="_blank">Floods</a></em>.</li>
+                
+                <li>Macquarie University. (2011). <em><a href="https://research-management.mq.edu.au/ws/portalfiles/portal/16832889/mq-19234-Publisher+version+(open+access).pdf" target="_blank">The 2011 Brisbane Floods: Causes, impacts and implications</a></em>.</li>
+                
+                <li>Scribd. (n.d.). <em><a href="https://www.scribd.com/doc/305458464/west-end-walk-4-v3" target="_blank">West End Walk 4 v3</a></em>.</li>
+                
+                <li>University of Queensland School of Architecture, Design and Planning. (2022). <em><a href="https://adp.uq.edu.au/files/13189/Aboriginal-Places-of-Inner-Brisbane-2022.pdf" target="_blank">Aboriginal places of inner Brisbane</a></em>.</li>
+                
+                <li>Queensland Government Department of Environment and Science. (n.d.). <em><a href="https://apps.des.qld.gov.au/heritage-register/detail/?id=600342" target="_blank">Gas Stripping Tower</a></em>.</li>
+                
+                <li>Must Do Brisbane. (n.d.). <em><a href="https://www.mustdobrisbane.com/visitors-arts-culture-history/gas-stripping-tower-west-end" target="_blank">Gas Stripping Tower | History of Brisbane</a></em>.</li>
+                
+                <li>Queensland Government Department of Environment and Science. (n.d.). <em><a href="https://apps.des.qld.gov.au/heritage-register/detail/?id=600342" target="_blank">Gas Stripping Tower</a></em>.</li>
+                
+                <li>Queensland Government Department of Environment and Science. (n.d.). <em><a href="https://apps.des.qld.gov.au/heritage-register/detail/?id=600342" target="_blank">Gas Stripping Tower</a></em>.</li>
+                
+                <li>Wikipedia. (n.d.). <em><a href="https://en.wikipedia.org/wiki/West_End_Gasworks" target="_blank">West End Gasworks</a></em>.</li>
+                
+                <li>Queensland Government Department of Environment and Science. (n.d.). <em><a href="https://apps.des.qld.gov.au/heritage-register/detail/?id=601595" target="_blank">West End Gasworks Distribution Centre</a></em>.</li>
+                
+                <li>Wikipedia. (n.d.). <em><a href="https://en.wikipedia.org/wiki/West_End_Gasworks" target="_blank">West End Gasworks</a></em>.</li>
+                
+                <li>Queensland Government Department of Environment and Science. (n.d.). <em><a href="https://apps.des.qld.gov.au/heritage-register/detail/?id=600342" target="_blank">Gas Stripping Tower</a></em>.</li>
+                
+                <li>Queensland Government Department of Environment and Science. (n.d.). <em><a href="https://apps.des.qld.gov.au/heritage-register/detail/?id=600342" target="_blank">Gas Stripping Tower</a></em>.</li>
+                
+                <li>West End Today. (n.d.). Multiple articles about Montague Markets development.</li>
+                
+                <li>State Library of Queensland. (n.d.). <em><a href="https://www.slq.qld.gov.au/blog/west-end" target="_blank">West End</a></em>.</li>
+                
+                <li>Mapping Brisbane History. (n.d.). <em><a href="https://mappingbrisbanehistory.com.au/brisbane-history-essays/brisbane-southside-history/industry-retail-and-commerce/" target="_blank">Industry, retail and commerce</a></em>.</li>
+                
+                <li>West Village Community. (n.d.). <em><a href="https://westvillagecommunity.com.au/wv/heritage/" target="_blank">Heritage</a></em>.</li>
+                
+                <li>West Village Community. (n.d.). <em><a href="https://westvillagecommunity.com.au/wv/heritage/" target="_blank">Heritage</a></em>.</li>
+                
+                <li>West Village Community. (n.d.). <em><a href="https://westvillagecommunity.com.au/wv/heritage/" target="_blank">Heritage</a></em>.</li>
+                
+                <li>West Village Community. (n.d.). <em><a href="https://westvillagecommunity.com.au/wv/heritage/" target="_blank">Heritage</a></em>.</li>
+                
+                <li>West Village Community. (n.d.). <em><a href="https://westvillagecommunity.com.au/wv/heritage/" target="_blank">Heritage</a></em>.</li>
+                
+                <li>West Village Community. (n.d.). <em><a href="https://westvillagecommunity.com.au/wv/heritage/" target="_blank">Heritage</a></em>.</li>
+                
+                <li>West Village Community. (n.d.). <em><a href="https://westvillagecommunity.com.au/wv/heritage/" target="_blank">Heritage</a></em>.</li>
+                
+                <li>Queensland Floods Commission of Inquiry. (2011). <em><a href="http://www.floodcommission.qld.gov.au/__data/assets/pdf_file/0020/9533/QFCI_Exhibit_576_-_Statement_of_Paul_Rees_dated_26_August_2011_with_Annexures.pdf" target="_blank">Statement of Paul Rees dated 26 August 2011 with annexures</a></em>.</li>
+                
+                <li>West End Today. (n.d.). <em><a href="https://westendtoday.com.au/tag/stockwell/" target="_blank">Stockwell Archives</a></em>.</li>
+                
+                <li>West Village Community. (n.d.). <em><a href="https://westvillagecommunity.com.au/wv/heritage/" target="_blank">Heritage</a></em>.</li>
+                
+                <li>Museum of Brisbane. (n.d.). <em><a href="https://www.museumofbrisbane.com.au/mob-sunday-stories-kurilpa-library/" target="_blank">MoB Sunday Stories: Kurilpa Library</a></em>.</li>
+                
+                <li>State Library of Queensland. (1891). <em><a href="https://www.data.qld.gov.au/dataset/real-estate-and-property-maps" target="_blank">Regatta Estate, comprising riverfront allotments</a></em>.</li>
+                
+                <li>ArcGIS StoryMaps. (n.d.). <em><a href="https://storymaps.arcgis.com/stories/28331baf7c584fb5be84ae1b8b7389f2" target="_blank">Historical flooding in Brisbane</a></em>.</li>
+                
+                <li>State Library of Queensland. (n.d.). <em><a href="https://www.slq.qld.gov.au/blog/west-end" target="_blank">West End</a></em>.</li>
+                
+                <li>West Village Community. (n.d.). <em><a href="https://westvillagecommunity.com.au/wv/heritage/" target="_blank">Heritage</a></em>.</li>
+                
+                <li>Regatta West End. (n.d.). <em><a href="https://www.regattawestend.com/home/about" target="_blank">About</a></em>.</li>
+                
+                <li>Reddit. (2022). <em><a href="https://www.reddit.com/r/brisbane/comments/t280zb/west_end_top_of_the_tide/" target="_blank">West End top of the tide</a></em>.</li>
+                
+                <li>Queensland Floods Commission of Inquiry. (2012). <em><a href="http://www.floodcommission.qld.gov.au/__data/assets/pdf_file/0014/11714/QFCI-Final-Report-Chapter-10-Essential-services.pdf" target="_blank">Final report, Chapter 10: Essential services</a></em>.</li>
+                
+                <li>Queensland Floods Commission of Inquiry. (2012). <em><a href="http://www.floodcommission.qld.gov.au/__data/assets/pdf_file/0014/11714/QFCI-Final-Report-Chapter-10-Essential-services.pdf" target="_blank">Final report, Chapter 10: Essential services</a></em>.</li>
+                
+                <li>Queensland Floods Commission of Inquiry. (2011). <em><a href="http://www.floodcommission.qld.gov.au/__data/assets/pdf_file/0020/9533/QFCI_Exhibit_576_-_Statement_of_Paul_Rees_dated_26_August_2011_with_Annexures.pdf" target="_blank">Statement of Paul Rees dated 26 August 2011 with annexures</a></em>.</li>
+            </ol>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>The Water Rat's Revenge – A Walking History of 5 Duncan Street, West End</p>
+        <p>© 2025 · Created with care for our neighbours</p>
+    </footer>
+
 </body>
 </html>
